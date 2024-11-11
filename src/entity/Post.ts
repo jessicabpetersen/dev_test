@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne  } from "typeorm";
-import { User } from "./User";
+import { Users } from "./Users";
 
 //TODO Crie a entidade de Post
 

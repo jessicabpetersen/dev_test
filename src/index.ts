@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import express from 'express';
 import { DataSource  } from 'typeorm';
-import { User } from './entity/User';
+import { Users } from './entity/Users';
 import { Post } from './entity/Post';
 
 const app = express();
@@ -35,7 +35,7 @@ initializeDatabase();
 
 app.post('/users', async (req, res) => {
 // Crie o endpoint de users
-	const user = new User();
+	const user = new Users();
         user.firstName = req.body.firstName;
         user.lastName = req.body.lastName;
         user.email = req.body.email;

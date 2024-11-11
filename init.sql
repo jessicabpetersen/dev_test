@@ -1,7 +1,7 @@
 USE test_db;
 
 --TODO Crie a tabela de user;
-CREATE TABLE IF NOT EXISTS public.user (
+CREATE TABLE IF NOT EXISTS users (
 	id integer AUTO_INCREMENT NOT NULL ,
 	firstName Varchar(100) NOT NULL,
     lastName  Varchar(100) NOT NULL,
@@ -9,15 +9,14 @@ CREATE TABLE IF NOT EXISTS public.user (
     CONSTRAINT user_pkey PRIMARY KEY (id)
 );
 --TODO Crie a tabela de posts;
-CREATE TABLE IF NOT EXISTS public.post (
+CREATE TABLE IF NOT EXISTS post (
 	id integer AUTO_INCREMENT NOT NULL,
 	title Varchar(100) NOT NULL,
     description  Varchar(100) NOT NULL,
 	userId integer,
-    CONSTRAINT user_pkey PRIMARY KEY (id)
+    CONSTRAINT user_pkey PRIMARY KEY (id),
 	CONSTRAINT userId FOREIGN KEY (userId)
-        REFERENCES public.user (id) MATCH SIMPLE
+        REFERENCES users (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-        NOT VALID
 );

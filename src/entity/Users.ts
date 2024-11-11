@@ -4,7 +4,7 @@ import { Post } from "./Post";
 //TODO Crie a entidade de User
 
 @Entity()
-export class User {
+export class Users {
     @PrimaryGeneratedColumn()
     id: number;
 
