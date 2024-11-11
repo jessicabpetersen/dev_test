@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import express from 'express';
-import { DataSource } from 'typeorm';
+import { DataSource  } from 'typeorm';
 import { User } from './entity/User';
 import { Post } from './entity/Post';
 
@@ -35,10 +35,24 @@ initializeDatabase();
 
 app.post('/users', async (req, res) => {
 // Crie o endpoint de users
+	const user = new User();
+        user.firstName = req.body.firstName;
+        user.lastName = req.body.lastName;
+        user.email = req.body.email;
+        
+        await user.save();
+        res.json(user);
 });
 
 app.post('/posts', async (req, res) => {
 // Crie o endpoint de posts
+	const post = new Post();
+        post.title = req.body.title;
+        post.description = req.body.description;
+        post.user = await User.findOne(req.body.userId);
+
+        await post.save();
+        res.json(post);
 });
 
 const PORT = process.env.PORT || 3000;
