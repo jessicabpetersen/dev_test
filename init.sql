@@ -2,7 +2,7 @@ USE test_db;
 
 --TODO Crie a tabela de user;
 CREATE TABLE IF NOT EXISTS public.user (
-	id integer NOT NULL AUTO_INCREMENT,
+	id integer AUTO_INCREMENT NOT NULL ,
 	firstName Varchar(100) NOT NULL,
     lastName  Varchar(100) NOT NULL,
 	email   Varchar(100) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS public.user (
 );
 --TODO Crie a tabela de posts;
 CREATE TABLE IF NOT EXISTS public.post (
-	id integer NOT NULL AUTO_INCREMENT,
+	id integer AUTO_INCREMENT NOT NULL,
 	title Varchar(100) NOT NULL,
     description  Varchar(100) NOT NULL,
 	userId integer,
